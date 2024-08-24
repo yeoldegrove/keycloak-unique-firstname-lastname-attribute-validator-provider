@@ -1,4 +1,4 @@
-package com.dawidgora.provider;
+package wtf.yog.keycloak;
 
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.RealmModel;

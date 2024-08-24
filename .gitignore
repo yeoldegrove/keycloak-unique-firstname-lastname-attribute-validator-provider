@@ -1,1 +1,4 @@
-/.idea
+.venv
+.envrc
+shell.nix
+target

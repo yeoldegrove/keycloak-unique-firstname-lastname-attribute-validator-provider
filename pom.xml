@@ -4,15 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dawidgora</groupId>
-    <artifactId>unique-attribute-validator-provider</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>wtf.yog</groupId>
+    <artifactId>keycloak-unique-attribute-validator-provider</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <jboss.logging.version>3.4.1.Final</jboss.logging.version>
-        <keycloak.version>22.0.4</keycloak.version>
+        <keycloak.version>24.0.0</keycloak.version>
     </properties>
 
     <dependencies>
@@ -49,4 +50,40 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>wtf.yog.keycloak.UniqueAttributeValidatorProvider</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <!--   https://docs.github.com/en/actions/guides/publishing-java-packages-with-maven
+    https://maven.apache.org/pom.html#distribution-management -->
+    <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/yeoldegrove/keycloak-unique-attribute-validator-provider</url>
+      </repository>
+    </distributionManagement>
 </project>
