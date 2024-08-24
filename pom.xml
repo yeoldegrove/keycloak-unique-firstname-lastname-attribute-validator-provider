@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>wtf.yog</groupId>
-    <artifactId>keycloak-unique-attribute-validator-provider</artifactId>
+    <artifactId>keycloak-unique-firstname-lastname-attribute-validator-provider</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -48,6 +48,18 @@
             <version>${keycloak.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-services</artifactId>
+            <version>${keycloak.version}</version>
+            <scope>provided</scope>
+        </dependency>            
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.0.0</version> <!-- Use the appropriate version for your project -->
+            <scope>provided</scope>
+        </dependency>            
     </dependencies>
 
     <build>
@@ -70,7 +82,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>wtf.yog.keycloak.UniqueAttributeValidatorProvider</mainClass>
+                            <mainClass>wtf.yog.keycloak.UniqueFirstnameLastnameAttributeValidatorProvider</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -83,7 +95,7 @@
       <repository>
         <id>github</id>
         <name>GitHub Packages</name>
-        <url>https://maven.pkg.github.com/yeoldegrove/keycloak-unique-attribute-validator-provider</url>
+        <url>https://maven.pkg.github.com/yeoldegrove/keycloak-unique-firstname-lastname-attribute-validator-provider</url>
       </repository>
     </distributionManagement>
 </project>
